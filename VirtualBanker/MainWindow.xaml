@@ -1,0 +1,21 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VirtualBanker"
+        xmlns:Properties="clr-namespace:VirtualBanker.Properties" x:Class="VirtualBanker.MainWindow"
+        mc:Ignorable="d"
+        Title="Virtual Bankism" Height="363" Width="522">
+    <Grid Margin="0,0,2,3">
+        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Height="281" Margin="10,10,0,0" VerticalAlignment="Top" Width="327"/>
+        <GroupBox x:Name="groupBox" Header="Solver Type" HorizontalAlignment="Left" Height="84" Margin="360,9,0,0" VerticalAlignment="Top" Width="133"/>
+        <RadioButton x:Name="iterativeRadioButton" Content="Iterative Solver" HorizontalAlignment="Left" VerticalAlignment="Top" GroupName="Solver" IsChecked="True" Margin="376,43,0,0"/>
+        <RadioButton x:Name="recursiveRadioButton" Content="Recursive Solver" HorizontalAlignment="Left" VerticalAlignment="Top" GroupName="Solver" Margin="376,58,0,0"/>
+        <Label x:Name="label" Content="Amount in" HorizontalAlignment="Left" Margin="13,292,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="inputTextBox" HorizontalAlignment="Left" Height="23" Margin="84,296,0,0" TextWrapping="Wrap" Text="100.0" VerticalAlignment="Top" Width="67"/>
+        <Button x:Name="button" Content="Calculate" HorizontalAlignment="Left" Margin="156,296,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" Height="23"/>
+        <Label x:Name="changeLabel" Content="" HorizontalAlignment="Left" Margin="236,293,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
