@@ -11,6 +11,7 @@ namespace VirtualBanker
     public partial class MainWindow : Window
     {
         List<CurrencyInputModel> notationsList = new List<CurrencyInputModel>() {
+            new CurrencyInputModel() { Name = "25 Cent", Value=0.25M },
             new CurrencyInputModel() { Name = "1 Dollar", Value=1 },
             new CurrencyInputModel() { Name = "2 Dollars", Value=2 },
             new CurrencyInputModel() { Name = "10 Dollars", Value=10 },
