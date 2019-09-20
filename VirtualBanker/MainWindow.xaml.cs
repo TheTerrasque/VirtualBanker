@@ -38,13 +38,14 @@ namespace VirtualBanker
             IChangeSolver solver = null;
             if (recursiveRadioButton.IsChecked.GetValueOrDefault(false)) solver = new RecursiveSolver(rounder);
             if (iterativeRadioButton.IsChecked.GetValueOrDefault(false)) solver = new IterativeSolver(rounder);
-            
 
-            if (solver != null && decimal.TryParse(value, out decimal amount)) {
-                // 
+            if (solver != null && decimal.TryParse(value, out decimal amount)) {                
                 solver.FindReturnFor(holder, amount);
+
+                // Update dataGrid with result
                 notationsList.ForEach(f => f.Update());
                 dataGrid.Items.Refresh();
+
                 changeLabel.Content = $"Amount left: {amount - holder.SumTaken()}";
             } else
             {
