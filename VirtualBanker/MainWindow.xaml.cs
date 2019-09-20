@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Windows;
 using VirtualBankLib;
+using VirtualBankLib.ChangeRounder;
 
 namespace VirtualBanker
 {
@@ -26,21 +27,29 @@ namespace VirtualBanker
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            // Get a CurrencyHolder holding notations made from dataGrid data in notationsList
             var holder = new CurrencyHolder(notationsList.Select(f => f.GetNotation()).ToList());
             var value = inputTextBox.Text;
 
+            IChangeRounder rounder = null;
+            if (NoroundRadioButton.IsChecked.GetValueOrDefault(false)) rounder = new NoRounding();
+            if (NaiveroundingRadioButton.IsChecked.GetValueOrDefault(false)) rounder = new NaiveRounder();
+
             IChangeSolver solver = null;
-            if (recursiveRadioButton.IsChecked.GetValueOrDefault(false)) solver = new RecursiveSolver();
-            if (iterativeRadioButton.IsChecked.GetValueOrDefault(false)) solver = new IterativeSolver();
+            if (recursiveRadioButton.IsChecked.GetValueOrDefault(false)) solver = new RecursiveSolver(rounder);
+            if (iterativeRadioButton.IsChecked.GetValueOrDefault(false)) solver = new IterativeSolver(rounder);
+            
 
             if (solver != null && decimal.TryParse(value, out decimal amount)) {
+                // 
                 solver.FindReturnFor(holder, amount);
                 notationsList.ForEach(f => f.Update());
                 dataGrid.Items.Refresh();
                 changeLabel.Content = $"Amount left: {amount - holder.SumTaken()}";
             } else
             {
-
+                changeLabel.Content = "Input is not a valid number";
+                inputTextBox.Text = "111.55";
             }
         }
     }

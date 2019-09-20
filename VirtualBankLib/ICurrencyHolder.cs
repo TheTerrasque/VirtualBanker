@@ -8,6 +8,9 @@ namespace VirtualBankLib
         decimal SumAvailable();
         decimal SumTaken();
         ICurrencyNotation GetClosestUnder(decimal value);
+        ICurrencyNotation GetClosestOver(decimal value);
         Dictionary<string, int> GetUsedNotations();
+        void ClearNotations();
+        void AddNotation(ICurrencyNotation notation);
     }
 }

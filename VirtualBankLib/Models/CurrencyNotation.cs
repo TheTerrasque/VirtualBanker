@@ -31,5 +31,10 @@ namespace VirtualBankLib.Models
             Used += number;
             Available -= number;
         }
+
+        public void Reset()
+        {
+            Used = 0;
+        }
     }
 }

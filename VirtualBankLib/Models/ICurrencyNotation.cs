@@ -8,5 +8,6 @@
         int Available { get; }
 
         void Take(int number=1);
+        void Reset();
     }
 }

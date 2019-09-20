@@ -11,11 +11,13 @@
         <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Height="281" Margin="10,10,0,0" VerticalAlignment="Top" Width="327"/>
         <GroupBox x:Name="groupBox" Header="Solver Type" HorizontalAlignment="Left" Height="84" Margin="360,9,0,0" VerticalAlignment="Top" Width="133"/>
         <RadioButton x:Name="iterativeRadioButton" Content="Iterative Solver" HorizontalAlignment="Left" VerticalAlignment="Top" GroupName="Solver" IsChecked="True" Margin="376,43,0,0"/>
-        <RadioButton x:Name="recursiveRadioButton" Content="Recursive Solver" HorizontalAlignment="Left" VerticalAlignment="Top" GroupName="Solver" Margin="376,58,0,0"/>
+        <RadioButton x:Name="recursiveRadioButton" Content="Recursive Solver" HorizontalAlignment="Left" VerticalAlignment="Top" GroupName="Solver" Margin="376,63,0,0"/>
         <Label x:Name="label" Content="Amount in" HorizontalAlignment="Left" Margin="13,292,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="inputTextBox" HorizontalAlignment="Left" Height="23" Margin="84,296,0,0" TextWrapping="Wrap" Text="111.50" VerticalAlignment="Top" Width="67"/>
         <Button x:Name="button" Content="Calculate" HorizontalAlignment="Left" Margin="156,296,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" Height="23"/>
         <Label x:Name="changeLabel" Content="" HorizontalAlignment="Left" Margin="236,293,0,0" VerticalAlignment="Top"/>
-
+        <GroupBox x:Name="groupBox1" Header="Rounding Type" HorizontalAlignment="Left" Height="73" Margin="360,112,0,0" VerticalAlignment="Top" Width="133"/>
+        <RadioButton x:Name="NoroundRadioButton" Content="No rounding" HorizontalAlignment="Left" Margin="376,157,0,0" VerticalAlignment="Top" IsChecked="True" GroupName="rounding"/>
+        <RadioButton x:Name="NaiveroundingRadioButton" Content="Naive rounding" HorizontalAlignment="Left" Margin="376,137,0,0" VerticalAlignment="Top" GroupName="rounding"/>
     </Grid>
 </Window>
